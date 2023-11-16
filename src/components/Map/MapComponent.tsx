@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./mapStyles.css";
 import { getLocalsData } from "./MapService";
 
 const MapComponent: React.FC = () => {

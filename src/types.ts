@@ -14,6 +14,6 @@ export interface Local {
   salePrice: number;
 }
 
-export interface LocalStatus {
+export interface LocalState {
   locals: Local[];
 }
