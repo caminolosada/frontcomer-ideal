@@ -1,3 +1,4 @@
+import { SelectInput } from "../SelectInput/SelectInput";
 import { SearchInput } from "../input/SearchInput";
 
 const App = (): React.ReactElement => {
@@ -5,6 +6,7 @@ const App = (): React.ReactElement => {
     <>
       <h1>Comercio</h1>
       <SearchInput />
+      <SelectInput />
     </>
   );
 };
