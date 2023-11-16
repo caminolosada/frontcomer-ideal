@@ -5,9 +5,13 @@ export const SelectInputStyles = styled.select`
   background-color: rgba(255, 255, 255, 0.8);
   margin: 100px auto;
   padding: 10px;
-  width: 90vw;
+  width: 85vw;
   border-radius: 15px;
   &:focus {
     border: 3px solid black;
+  }
+
+  @media (min-width: 768px) {
+    width: 85vw;
   }
 `;
