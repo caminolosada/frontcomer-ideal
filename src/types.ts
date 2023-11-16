@@ -1,9 +1,9 @@
 export interface Local {
-  localId: string;
+  localID: string;
   localName: string;
   address: string;
   isGolden: boolean;
-  districtId: number;
+  districtID: number;
   district: string;
   isAvailability: boolean;
   activityType: string;

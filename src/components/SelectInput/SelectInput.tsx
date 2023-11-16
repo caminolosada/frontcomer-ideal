@@ -1,12 +1,29 @@
-import { useId } from "react";
 import { SelectInputStyles } from "./SelectInput.styles";
-export const SelectInput = () => {
-  const districtId = useId();
+
+interface SelectInputProps {
+  actionOnSelect: (id: string) => void;
+}
+
+export const SelectInput = ({ actionOnSelect }: SelectInputProps) => {
+  const handleOnFilter = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const district = event.target.value;
+
+    actionOnSelect(district);
+  };
+
   return (
-    <SelectInputStyles id={districtId} name="selectedDistrict">
-      <option>Sant Martti</option>
-      <option value="Example">Eixample</option>
-      <option value="tomato">Eixample II</option>
+    <SelectInputStyles onChange={handleOnFilter} name="selectedDistrict">
+      <option hidden>Tria el districte</option>
+      <option>Ciutat Vella</option>
+      <option>Eixample</option>
+      <option>Gràcia</option>
+      <option>Horta-Guinardó</option>
+      <option>Les Corts</option>
+      <option>Nou Barris</option>
+      <option>Sant Andreu</option>
+      <option>Sant Martí</option>
+      <option>Sants-Montjuïc</option>
+      <option>Sarrià-Sant Gervasi</option>
     </SelectInputStyles>
   );
 };

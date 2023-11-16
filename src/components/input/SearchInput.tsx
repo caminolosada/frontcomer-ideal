@@ -24,7 +24,7 @@ export const SearchInput = () => {
       <SearchIcon className="search-icon" size={16} />
       <SearchInputStyles
         type="text"
-        placeholder="Find your Comerce"
+        placeholder="Busca per activitat"
         className="text-white p-1 w-[60%] text-center placeholder-[#5d910f] font-bold rounded-md md:text-lg focus:bg-white-600 focus:text-black focus:outline-none"
         value={queryLetter}
         onChange={handleChangeParams}

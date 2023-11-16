@@ -23,5 +23,5 @@ export const SearchInputStyles = styled.input`
 `;
 
 export const InputContainer = styled.div`
-  position: absolute;
+  position: relative;
 `;
