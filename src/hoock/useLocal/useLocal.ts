@@ -2,7 +2,7 @@ import axios from "axios";
 import { LocalState, Local } from "../../types";
 
 const useLocal = () => {
-  const getLocals = async (id: string): Promise<Local[]> => {
+  const getLocalsById = async (id: string): Promise<Local[]> => {
     try {
       const {
         data: { locals },
@@ -14,7 +14,7 @@ const useLocal = () => {
     }
   };
 
-  return getLocals;
+  return { getLocalsById };
 };
 
 export default useLocal;

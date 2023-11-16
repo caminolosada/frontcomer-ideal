@@ -1,5 +1,5 @@
-import localesData from "../../data/bd.json"; // Ajusta la ruta según la estructura de tu proyecto
+import { localsState } from "../../data/locals";
+import { Local } from "../../types";
 
-export const getLocalsData = () => {
-  return localesData.locales;
-};
+export const getLocalsDataById = (district: string): Local[] =>
+  localsState.locals.filter((local) => local.district === district);

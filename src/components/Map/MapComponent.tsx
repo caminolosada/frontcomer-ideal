@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
-import { getLocalsData } from "./MapService";
-
-const markerGold =
-  "https://res.cloudinary.com/drghk9p6q/image/upload/v1700160592/marcador-de-posicion_1_qdg7qb.png";
-const markerBlue =
-  "https://res.cloudinary.com/drghk9p6q/image/upload/v1700160592/marcador-de-posicion_ihzf30.png";
+import { useAppSelector } from "../../store";
 
 const MapComponent: React.FC = () => {
+  const locals = useAppSelector((state) => state.localState.locals);
+
   useEffect(() => {
-    const bcnCoordinates = { lat: 41.3851, lng: 2.1734 };
+    const goldenLocal = locals.filter((local) => local.isGolden);
+
+    const bcnCoordinates = !goldenLocal.length
+      ? { lat: 41.3851, lng: 2.1734 }
+      : { lat: goldenLocal[0].latitude, lng: goldenLocal[0].longitude };
 
     const map = new google.maps.Map(
       document.getElementById("map") as HTMLElement,
@@ -19,43 +20,57 @@ const MapComponent: React.FC = () => {
       }
     );
 
-    //CAPTURA DE DATOS
-    const locals = getLocalsData();
-
     //MARKERS IN MAP
     locals.forEach((local) => {
       // Determina el color del símbolo en función de isGolden
-      const symbolColor = local.isGolden ? markerGold : markerBlue;
+
+      const symbolColor = local.isGolden
+        ? "gold"
+        : local.isAvailability
+        ? "green"
+        : "blue";
 
       const marker = new google.maps.Marker({
         position: {
-          lat: local.coordenadas.latitud,
-          lng: local.coordenadas.longitud,
+          lat: local.latitude,
+          lng: local.longitude,
         },
         map,
-        title: `Local ID: ${local.id}`,
+        title: `${local.address}`,
         icon: {
-          url: symbolColor,
-          scaledSize: new google.maps.Size(50, 50),
+          path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+          fillColor: symbolColor,
+          fillOpacity: 1,
+          strokeColor: "black",
+          strokeWeight: 1,
+          scale: local.isGolden ? 10 : 5,
         },
       });
 
       const infoWindow = new google.maps.InfoWindow({
         content: `
             <div>
-                <p>Estado: ${local.estado || "No especificado"}</p>
-                ${
-                  local.costeAlquiler
-                    ? `<p>Coste de Alquiler: ${local.costeAlquiler}</p>`
-                    : ""
+                <p>Estat: ${
+                  local.isAvailability
+                    ? "Disponible"
+                    : "Ocupat" || "No especificat"
                 }</p>
                 ${
-                  local.tipoNegocio
-                    ? `<p>Tipo de Negocio: ${local.tipoNegocio}</p>`
+                  local.isAvailability
+                    ? `<p>Preu de lloguer: ${local.rentalPrice}€</p>`
+                    : ""
+                }${
+          local.isAvailability
+            ? `<p>Preu de venda: ${local.salePrice}€</p>`
+            : ""
+        }</p>
+                ${
+                  local.activityType
+                    ? `<p>Tipus de Negoci: ${local.activityType}</p>`
                     : ""
                 }</p>
 
-                <a href="https://api.whatsapp.com/send?phone=677147018" target="_blank">Contactar agente</a>
+                <a href="https://api.whatsapp.com/send?phone=677147018" target="_blank">Contacte agent</a>
                 </div>
             `,
       });
@@ -64,9 +79,9 @@ const MapComponent: React.FC = () => {
         infoWindow.open(map, marker);
       });
     });
-  }, []);
+  }, [locals]);
 
-  return <div id="map" style={{ height: "400px", width: "100%" }}></div>;
+  return <div id="map" style={{ height: "600px", width: "100%" }}></div>;
 };
 
 export default MapComponent;

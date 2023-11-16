@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
   }
 
   body,
@@ -22,13 +23,11 @@ const GlobalStyle = createGlobalStyle`
     font: inherit;
   }
 
-  a{
-    text-decoration: none;
-    color: inherit;
+  a {
     font: inherit;
   }
 
-  ul{
+  ul {
     list-style: none;
     padding-left: 0;
     margin-bottom: 0;
