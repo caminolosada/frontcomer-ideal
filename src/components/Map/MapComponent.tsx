@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
 import { getLocalsData } from "./MapService";
 
+const markerGold =
+  "https://res.cloudinary.com/drghk9p6q/image/upload/v1700160592/marcador-de-posicion_1_qdg7qb.png";
+const markerBlue =
+  "https://res.cloudinary.com/drghk9p6q/image/upload/v1700160592/marcador-de-posicion_ihzf30.png";
+
 const MapComponent: React.FC = () => {
   useEffect(() => {
     const bcnCoordinates = { lat: 41.3851, lng: 2.1734 };
@@ -20,7 +25,7 @@ const MapComponent: React.FC = () => {
     //MARKERS IN MAP
     locals.forEach((local) => {
       // Determina el color del símbolo en función de isGolden
-      const symbolColor = local.isGolden ? "gold" : "blue";
+      const symbolColor = local.isGolden ? markerGold : markerBlue;
 
       const marker = new google.maps.Marker({
         position: {
@@ -30,12 +35,8 @@ const MapComponent: React.FC = () => {
         map,
         title: `Local ID: ${local.id}`,
         icon: {
-          path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
-          fillColor: symbolColor,
-          fillOpacity: 1,
-          strokeColor: "black",
-          strokeWeight: 1,
-          scale: 8,
+          url: symbolColor,
+          scaledSize: new google.maps.Size(50, 50),
         },
       });
 
