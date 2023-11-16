@@ -1,12 +1,7 @@
-import { SearchInput } from "../input/SearchInput";
+import { HomePage } from "../home/HomePage";
 
 const App = (): React.ReactElement => {
-  return (
-    <>
-      <h1>Comercio</h1>
-      <SearchInput />
-    </>
-  );
+  return <HomePage />;
 };
 
 export default App;
