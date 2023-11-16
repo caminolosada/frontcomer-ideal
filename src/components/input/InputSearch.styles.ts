@@ -9,12 +9,16 @@ export const SearchInputStyles = styled.input`
   align-items: center;
   flex-shrink: 0;
   border-radius: 15px;
-  width: 90vw;
+  width: 85vw;
   height: 40px;
   padding-left: 40px;
   margin: 0 auto;
   &:focus {
     border: 3px solid black;
+  }
+
+  @media (min-width: 768px) {
+    width: 85vw;
   }
 `;
 
