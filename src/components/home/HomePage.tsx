@@ -1,4 +1,6 @@
+
 import { SelectInput } from "../SelectInput/SelectInput";
+import MapComponent from "../Map/MapComponent";
 import { SearchInput } from "../input/SearchInput";
 import HomePageStyled from "./HomePageStyled";
 
@@ -7,6 +9,7 @@ export const HomePage = (): React.ReactElement => {
     <HomePageStyled>
       <SearchInput />
       <SelectInput />
+      <MapComponent />
     </HomePageStyled>
   );
 };
