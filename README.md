@@ -47,6 +47,12 @@ A lo largo del desarrollo de la aplicación, el control de versiones se gestion�
 
 - **Figma**: herramienta de diseño y prototipado basada en la nube utilizada para el diseño de interfaces, prototipado, colaboración y sistemas de diseño.
 
+- ### Ejecución
+
+1. Clonar el repositorio: `git clone https://github.com/tu-usuario/frontcomer-ideal.git`
+2. Ejecutar comando `npm i` para instalar las dependencias necesairas
+3. Ejecutar comando `npmi` y navegar a la dirección localhost correspondiente
+
 ## Data
 
 ### 1. Introducción
