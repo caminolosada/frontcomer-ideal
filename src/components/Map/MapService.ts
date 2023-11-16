@@ -1,5 +1,5 @@
-import localsData from "../../data/bd.json";
+import localesData from "../../data/bd.json"; // Ajusta la ruta según la estructura de tu proyecto
 
 export const getLocalsData = () => {
-  return localsData.locales;
+  return localesData.locales;
 };

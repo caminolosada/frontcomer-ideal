@@ -2,6 +2,7 @@ export interface Local {
   localId: string;
   localName: string;
   address: string;
+  isGolden: boolean;
   districtId: number;
   district: string;
   isAvailability: boolean;

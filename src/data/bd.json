@@ -7,6 +7,7 @@
         "longitud": 2.1734
       },
       "estado": "Disponible",
+      "isGolden": false,
       "costeAlquiler": 1500
     },
     {
@@ -16,7 +17,9 @@
         "longitud": 2.1648
       },
       "tipoNegocio": "Automoción",
-      "estado": "Ocupado"
+      "estado": "Disponible",
+      "isGolden": true,
+      "costeVenta": 500000
     },
     {
       "id": 3,
@@ -25,6 +28,7 @@
         "longitud": 2.1922
       },
       "estado": "Disponible",
+      "isGolden": false,
       "costeAlquiler": 2500,
       "costeVenta": 500000
     },
@@ -35,6 +39,7 @@
         "longitud": 2.1912
       },
       "tipoNegocio": "Ferretería",
+      "isGolden": false,
       "estado": "Disponible",
       "costeAlquiler": 1200
     }

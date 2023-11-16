@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { mapStyles } from "./MapStyles";
+import "./mapStyles.css";
 import { getLocalsData } from "./MapService";
 
 const MapComponent: React.FC = () => {
@@ -9,25 +9,35 @@ const MapComponent: React.FC = () => {
     const map = new google.maps.Map(
       document.getElementById("map") as HTMLElement,
       {
-        // ubicación inicial
+        // UBICACIÓN INCIAL
         center: bcnCoordinates,
         zoom: 13,
-        styles: mapStyles,
       }
     );
 
-    //getLocalsData
+    //CAPTURA DE DATOS
     const locals = getLocalsData();
 
-    //Markers in map
+    //MARKERS IN MAP
     locals.forEach((local) => {
+      // Determina el color del símbolo en función de isGolden
+      const symbolColor = local.isGolden ? "gold" : "blue";
+
       const marker = new google.maps.Marker({
         position: {
           lat: local.coordenadas.latitud,
           lng: local.coordenadas.longitud,
         },
         map,
-        title: `Local ID: $(local.id)`,
+        title: `Local ID: ${local.id}`,
+        icon: {
+          path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+          fillColor: symbolColor,
+          fillOpacity: 1,
+          strokeColor: "black",
+          strokeWeight: 1,
+          scale: 8,
+        },
       });
 
       const infoWindow = new google.maps.InfoWindow({
@@ -44,7 +54,9 @@ const MapComponent: React.FC = () => {
                     ? `<p>Tipo de Negocio: ${local.tipoNegocio}</p>`
                     : ""
                 }</p>
-            </div>
+
+                <a href="https://api.whatsapp.com/send?phone=677147018" target="_blank">Contactar agente</a>
+                </div>
             `,
       });
 
