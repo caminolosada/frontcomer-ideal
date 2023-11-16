@@ -12,6 +12,7 @@ export const SearchInputStyles = styled.input`
   width: 90vw;
   height: 40px;
   padding-left: 40px;
+  margin: 0 auto;
   &:focus {
     border: 3px solid black;
   }
