@@ -1,0 +1,42 @@
+{
+  "locales": [
+    {
+      "id": 1,
+      "coordenadas": {
+        "latitud": 41.3851,
+        "longitud": 2.1734
+      },
+      "estado": "Disponible",
+      "costeAlquiler": 1500
+    },
+    {
+      "id": 2,
+      "coordenadas": {
+        "latitud": 41.3947,
+        "longitud": 2.1648
+      },
+      "tipoNegocio": "Automoción",
+      "estado": "Ocupado"
+    },
+    {
+      "id": 3,
+      "coordenadas": {
+        "latitud": 41.3784,
+        "longitud": 2.1922
+      },
+      "estado": "Disponible",
+      "costeAlquiler": 2500,
+      "costeVenta": 500000
+    },
+    {
+      "id": 4,
+      "coordenadas": {
+        "latitud": 41.3856,
+        "longitud": 2.1912
+      },
+      "tipoNegocio": "Ferretería",
+      "estado": "Disponible",
+      "costeAlquiler": 1200
+    }
+  ]
+}

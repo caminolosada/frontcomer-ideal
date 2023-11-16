@@ -1,12 +1,14 @@
+import MapComponent from "../Map/MapComponent";
 import { SearchInput } from "../input/SearchInput";
 
-const App = (): React.ReactElement => {
+function App() {
   return (
-    <>
-      <h1>Comercio</h1>
+    <div>
+      <h1>Comerç ideal</h1>
       <SearchInput />
-    </>
+      <MapComponent />
+    </div>
   );
-};
+}
 
 export default App;
