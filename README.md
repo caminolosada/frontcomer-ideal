@@ -49,6 +49,8 @@ A lo largo del desarrollo de la aplicación, el control de versiones se gestion�
 
 ## Backend
 
+El repositorio de Back puede consultarse en: https://github.com/abde7h/backcomer-ideal.git
+
 ### Tecnologías Utilizadas
 
 - Java
