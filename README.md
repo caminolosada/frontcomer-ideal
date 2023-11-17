@@ -174,6 +174,8 @@ En resumen, la estrategia de establecer un local en una "milla de oro" emerge co
 
 ## Backend
 
+El repositorio de Back puede consultarse en: https://github.com/abde7h/backcomer-ideal.git
+
 ### Tecnologías Utilizadas
 
 - Java
